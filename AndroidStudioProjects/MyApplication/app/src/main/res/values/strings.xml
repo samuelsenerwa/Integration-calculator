@@ -9,4 +9,6 @@
     <string name="romberg">romberg</string>
     <string name="i">i:</string>
     <string name="trapezoidal">Trapezoidal</string>
+    <string name="trapezoidal_description"></string>
+
 </resources>

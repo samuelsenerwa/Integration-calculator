@@ -3,9 +3,12 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +23,17 @@ public class RuleActivity extends Activity{
         setContentView(R.layout.rule_selection);
 
         EditText a = (EditText)findViewById(R.id.etxt1);
+        a.setInputType(InputType.TYPE_CLASS_NUMBER);
        // a.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         EditText b = (EditText)findViewById(R.id.etxt2);
+        b.setInputType(InputType.TYPE_CLASS_NUMBER);
       //  b.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         EditText in=(EditText)findViewById(R.id.etxt3);
+        in.setInputType(InputType.TYPE_CLASS_NUMBER);
        // in.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+
+        //textview to display formulae
+//        TextView formulaTrapezoidal = (TextView) findViewById(R.id.trapeziodal_formula);
 
         final TextView test = (TextView)findViewById(R.id.txtest);
         final TextView test1 = (TextView)findViewById(R.id.txtest1);
@@ -60,6 +69,11 @@ public class RuleActivity extends Activity{
                     double secondval = Double.parseDouble(b.getText().toString());
                     int loop = Integer.parseInt(in.getText().toString());
                     test.setText("Result:" + integrateTrapezoidal(firstval, secondval, loop, txtequ));
+                  //display the formula
+                    String description = getString(R.string.trapezoidal_description);
+//                    formulaTrapezoidal.setText(description);
+                    ImageView trapezoidal_img = findViewById(R.id.trapezoidal_img);
+                    trapezoidal_img.setImageResource(R.drawable.trapsim);
                 }
             }
         });
@@ -78,6 +92,8 @@ public class RuleActivity extends Activity{
                     double secondval = Double.parseDouble(b.getText().toString());
                     int loop= Integer.parseInt(in.getText().toString());
                     test.setText("Result:" + integrateRomberg(firstval, secondval, loop, txtequ));
+                    ImageView romberg_img = findViewById(R.id.romberg_img);
+                    romberg_img.setImageResource(R.drawable.rosimple);
                 }}
         });
 
@@ -95,6 +111,8 @@ public class RuleActivity extends Activity{
                     double secondval = Double.parseDouble(b.getText().toString());
                     int loop= Integer.parseInt(in.getText().toString());
                     test.setText("Result:" + integrateSimpson(firstval, secondval, loop, txtequ));
+                    ImageView simpson_img = findViewById(R.id.simpson_img);
+                    simpson_img.setImageResource(R.drawable.simpson);
                 }}
         });
     }
